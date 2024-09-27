@@ -2,6 +2,7 @@ package internal
 
 import "net/http"
 
-type LoadBalancer interface {
+type loadBalancer interface {
 	ServeHTTP(http.ResponseWriter, *http.Request)
+	HealthCheck()
 }
