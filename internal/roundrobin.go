@@ -63,6 +63,7 @@ func (rp *RRPool) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func (rp *RRPool) HealthCheck() {
 	rp.mu.Lock()
 	defer rp.mu.Unlock()
+	log.Println("Health check underway")
 	for server, alive := range rp.serverMap {
 		v, err := isAlive(server)
 		if v {

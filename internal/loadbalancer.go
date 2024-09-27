@@ -34,7 +34,6 @@ func (lb *LoadBalancer) Serve(addr string) {
 		defer t.Stop()
 		for {
 			<-t.C
-			log.Println("Health check underway")
 			lb.pool.HealthCheck()
 		}
 	}()
